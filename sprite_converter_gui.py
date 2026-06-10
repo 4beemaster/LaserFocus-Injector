@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bullseye Injector GUI
+LaserFocus Injector GUI
 A user-friendly interface for the PokeMMO sprite replacement pipeline.
 """
 
@@ -9,6 +9,7 @@ from tkinter import ttk, filedialog, messagebox, scrolledtext
 import threading
 import logging
 import time
+import sys
 from datetime import datetime
 from pathlib import Path
 import json
@@ -22,9 +23,20 @@ import os
 from mod_packager import ModPackager
 
 
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = Path(sys._MEIPASS)
+    except Exception:
+        base_path = Path(__file__).parent
+    
+    return base_path / relative_path
+
+
 class SpriteConverterGUI:
     """
-    Main GUI application for Bullseye Injector.
+    Main GUI application for LaserFocus Injector.
     
     This class provides a comprehensive interface for sprite injection and mod creation,
     featuring intelligent file analysis, real-time preview, and automated processing.
@@ -51,7 +63,7 @@ class SpriteConverterGUI:
     
     def __init__(self, root):
         self.root = root
-        self.root.title("Bullseye Injector v1.0")
+        self.root.title("LaserFocus Injector v1.0")
         self.root.geometry("800x800")
         self.root.minsize(750, 750)
         self.root.resizable(True, True)
@@ -68,9 +80,24 @@ class SpriteConverterGUI:
         self.output_dir = tk.StringVar()
         self.log_dir = tk.StringVar(value="logs")  # Default log directory
         self.limit_var = tk.StringVar()
+        self.badge_height_var = tk.StringVar()
+        self.badge_height_unit = tk.StringVar(value="px")  # "px" or "percent"
+        self.min_height_var = tk.StringVar()
         self.process_all = tk.BooleanVar(value=True)
+        self.process_back_sprites = tk.BooleanVar(value=False)
+        self.ignore_back_sprites = tk.BooleanVar(value=False)  # Completely skip back sprites
+        self.use_mod_zip_extension = tk.BooleanVar(value=False)  # Use .mod.zip instead of .mod
         self.show_logs = tk.BooleanVar(value=True)
         self.use_custom_log_dir = tk.BooleanVar(value=False)
+        self.use_bullseye_fallback = tk.BooleanVar(value=True)
+        self.shiny_hunter_mode = tk.BooleanVar(value=False)
+        self.shiny_mode_option = tk.StringVar(value="bullseye_normal")  # "bullseye_normal" or "replacement_normal"
+        self.skip_replacement_badges = tk.BooleanVar(value=False)  # Skip badges on replacement sprites in shiny hunter mode
+        self.badge_location = tk.StringVar(value="right")  # "left" or "right"
+        self.padding_mode = tk.StringVar(value="left")  # "left", "right", or "none"
+        self.custom_padding_px = tk.StringVar()  # Custom padding in pixels
+        self.pre_badge_scale = tk.StringVar(value="100")  # Pre-badge scaling percentage
+        self.preview_pokedex = tk.StringVar()  # Pokédex number for targeted preview
         
         # Add trace callbacks to detect directory changes
         self.move_dir.trace('w', self.on_directory_change)
@@ -97,6 +124,14 @@ class SpriteConverterGUI:
         self.preview_cache_max_size = 50  # Maximum number of cached images
         self.preview_cache_order = []  # LRU tracking for cache
         
+        # Calculated sprite heights (updated during file analysis)
+        self.calculated_max_front_height = 0
+        self.calculated_max_back_height = 0
+        
+        # Last used settings file path
+        self.last_settings_file = None
+        self.settings_path_file = Path(".last_settings_path")
+        
         # Initialize scaling configuration with defaults
         self.default_summary_scale = 2.7
         self.default_front_scale = 1.0
@@ -105,12 +140,20 @@ class SpriteConverterGUI:
         self.summary_overrides = {}
         self.front_overrides = {}
         self.back_overrides = {}
+        # Table creation flags
+        self.create_summary_table = True
+        self.create_front_table = True
+        self.create_back_table = True
         
         # Load settings
         self.load_settings()
         
         # Create GUI
         self.create_widgets()
+        
+        # Apply shiny hunter mode toggle state to show/hide options if it was saved as checked
+        if self.shiny_hunter_mode.get():
+            self.toggle_shiny_mode()
         
         # Initial file detection after everything is set up (only if directories are set)
         self.root.after(500, self.initial_detect_files)
@@ -215,7 +258,7 @@ class SpriteConverterGUI:
         right_col = tk.Frame(dir_frame, bg='#3a3a3a')
         right_col.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=8, pady=8)
         
-        # Left column - Bullseye and Replacement sprites
+        # Left column - Original Bullseye sprites and Replacement sprites
         self.create_dir_row(left_col, "Bullseye Sprites:", self.move_dir, self.browse_move_dir)
         self.create_dir_row(left_col, "Replacement Sprites:", self.sprite_dir, self.browse_sprite_dir)
         
@@ -342,8 +385,15 @@ class SpriteConverterGUI:
         options_container = tk.Frame(options_frame, bg='#3a3a3a')
         options_container.pack(fill=tk.X, padx=8, pady=(12, 8))
         
-        # Process all checkbox
-        self.process_all_cb = tk.Checkbutton(options_container, text="Process all", 
+        # First row: Process all and Limit
+        first_row = tk.Frame(options_container, bg='#3a3a3a')
+        first_row.pack(fill=tk.X, pady=(0, 8))
+        
+        # Process all section (store as frame for width calculation)
+        self.process_all_section = tk.Frame(first_row, bg='#3a3a3a')
+        self.process_all_section.pack(side=tk.LEFT)
+        
+        self.process_all_cb = tk.Checkbutton(self.process_all_section, text="Process all", 
                                            variable=self.process_all,
                                            command=self.toggle_limit,
                                            font=("Segoe UI", 10),
@@ -351,38 +401,292 @@ class SpriteConverterGUI:
                                            selectcolor='#555555',
                                            activebackground='#3c3c3c',
                                            activeforeground='#e0e0e0')
-        self.process_all_cb.pack(anchor=tk.W, pady=(0, 8))
+        self.process_all_cb.pack(side=tk.LEFT, padx=(0, 20))
         
-        # Limit option row
-        limit_frame = tk.Frame(options_container, bg='#3a3a3a')
-        limit_frame.pack(anchor=tk.W, pady=(0, 8))
+        # Limit section (on same row as process all)
+        self.limit_section = tk.Frame(first_row, bg='#3a3a3a')
+        self.limit_section.pack(side=tk.LEFT)
         
-        self.limit_label = tk.Label(limit_frame, text="Limit to:", 
+        self.limit_label = tk.Label(self.limit_section, text="Limit to:", 
                 font=("Segoe UI", 10),
                 bg='#3a3a3a', fg='#e0e0e0')
         self.limit_label.pack(side=tk.LEFT, padx=(0, 8))
         
-        self.limit_entry = tk.Entry(limit_frame, textvariable=self.limit_var, 
+        self.limit_entry = tk.Entry(self.limit_section, textvariable=self.limit_var, 
                                   width=8, font=("Segoe UI", 10),
                                   relief=tk.FLAT, bd=1, bg='#4a4a4a', fg='#e0e0e0', insertbackground='#e0e0e0',
                                   highlightthickness=1, highlightcolor='#8e44ad',
                                   state=tk.DISABLED, disabledbackground='#5a5a5a')
         self.limit_entry.pack(side=tk.LEFT, padx=(0, 8))
         
-        self.sprites_label = tk.Label(limit_frame, text="sprites", 
+        self.sprites_label = tk.Label(self.limit_section, text="sprites", 
                 font=("Segoe UI", 10),
                 bg='#3a3a3a', fg='#e0e0e0')
         self.sprites_label.pack(side=tk.LEFT)
         
-        # Show logs checkbox
-        self.show_logs_cb = tk.Checkbutton(options_container, text="Show logs", 
-                                         variable=self.show_logs,
+        # Second row: Add badges and Use Bullseye fallback
+        second_row = tk.Frame(options_container, bg='#3a3a3a')
+        second_row.pack(fill=tk.X, pady=(0, 8))
+        
+        self.process_back_sprites_cb = tk.Checkbutton(second_row, text="Add badges to back sprites", 
+                                           variable=self.process_back_sprites,
+                                           font=("Segoe UI", 10),
+                                           bg='#3a3a3a', fg='#e0e0e0',
+                                           selectcolor='#555555',
+                                           activebackground='#3c3c3c',
+                                           activeforeground='#e0e0e0')
+        self.process_back_sprites_cb.pack(side=tk.LEFT, padx=(0, 20))
+        
+        self.bullseye_fallback_cb = tk.Checkbutton(second_row, text="Use Bullseye sprites if replacement is missing", 
+                                         variable=self.use_bullseye_fallback,
                                          font=("Segoe UI", 10),
                                          bg='#3a3a3a', fg='#e0e0e0',
                                          selectcolor='#555555',
                                          activebackground='#3c3c3c',
                                          activeforeground='#e0e0e0')
-        self.show_logs_cb.pack(anchor=tk.W)
+        self.bullseye_fallback_cb.pack(side=tk.LEFT)
+        
+        # Third row: Ignore back sprites
+        third_row = tk.Frame(options_container, bg='#3a3a3a')
+        third_row.pack(fill=tk.X, pady=(0, 8))
+        
+        self.ignore_back_sprites_cb = tk.Checkbutton(third_row, text="Ignore back sprites (don't copy or process)", 
+                                           variable=self.ignore_back_sprites,
+                                           font=("Segoe UI", 10),
+                                           bg='#3a3a3a', fg='#e0e0e0',
+                                           selectcolor='#555555',
+                                           activebackground='#3c3c3c',
+                                           activeforeground='#e0e0e0')
+        self.ignore_back_sprites_cb.pack(side=tk.LEFT)
+        
+        self.use_mod_zip_cb = tk.Checkbutton(third_row, text="Output as .mod.zip", 
+                                           variable=self.use_mod_zip_extension,
+                                           font=("Segoe UI", 10),
+                                           bg='#3a3a3a', fg='#e0e0e0',
+                                           selectcolor='#555555',
+                                           activebackground='#3c3c3c',
+                                           activeforeground='#e0e0e0')
+        self.use_mod_zip_cb.pack(side=tk.LEFT, padx=(20, 0))
+        
+        # Explanation text above settings
+        explanation_label = tk.Label(options_container, 
+                                    text="Max height is calculated from the max height of the front/back replacement sprites separately",
+                                    font=("Segoe UI", 8, "italic"),
+                                    bg='#3a3a3a', fg='#95a5a6')
+        explanation_label.pack(anchor=tk.W, pady=(8, 2))
+        
+        # Min sprite height row
+        min_height_row = tk.Frame(options_container, bg='#3a3a3a')
+        min_height_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        min_height_label = tk.Label(min_height_row, text="Min front sprite height:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        min_height_label.pack(side=tk.LEFT, padx=(0, 8))
+        
+        self.min_height_entry = tk.Entry(min_height_row, textvariable=self.min_height_var, 
+                                  width=8, font=("Segoe UI", 10),
+                                  relief=tk.FLAT, bd=1, bg='#4a4a4a', fg='#e0e0e0', insertbackground='#e0e0e0',
+                                  highlightthickness=1, highlightcolor='#8e44ad')
+        self.min_height_entry.pack(side=tk.LEFT, padx=(0, 8))
+        
+        min_height_px_label = tk.Label(min_height_row, text="px (blank: auto (100px or 51% of max height))", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        min_height_px_label.pack(side=tk.LEFT)
+        
+        # Badge height row
+        badge_height_row = tk.Frame(options_container, bg='#3a3a3a')
+        badge_height_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        badge_height_label = tk.Label(badge_height_row, text="Badge height:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        badge_height_label.pack(side=tk.LEFT, padx=(0, 8))
+        
+        self.badge_height_entry = tk.Entry(badge_height_row, textvariable=self.badge_height_var, 
+                                  width=8, font=("Segoe UI", 10),
+                                  relief=tk.FLAT, bd=1, bg='#4a4a4a', fg='#e0e0e0', insertbackground='#e0e0e0',
+                                  highlightthickness=1, highlightcolor='#8e44ad')
+        self.badge_height_entry.pack(side=tk.LEFT, padx=(0, 8))
+        
+        self.badge_height_px_rb = tk.Radiobutton(badge_height_row, text="px", 
+                                            variable=self.badge_height_unit, value="px",
+                                            font=("Segoe UI", 10),
+                                            bg='#3a3a3a', fg='#e0e0e0',
+                                            selectcolor='#555555',
+                                            activebackground='#3c3c3c',
+                                            activeforeground='#e0e0e0')
+        self.badge_height_px_rb.pack(side=tk.LEFT)
+        
+        self.badge_height_pct_rb = tk.Radiobutton(badge_height_row, text="%", 
+                                            variable=self.badge_height_unit, value="percent",
+                                            font=("Segoe UI", 10),
+                                            bg='#3a3a3a', fg='#e0e0e0',
+                                            selectcolor='#555555',
+                                            activebackground='#3c3c3c',
+                                            activeforeground='#e0e0e0')
+        self.badge_height_pct_rb.pack(side=tk.LEFT, padx=(0, 8))
+        
+        badge_height_help_label = tk.Label(badge_height_row, text="(blank = auto 12.5% of max height)", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        badge_height_help_label.pack(side=tk.LEFT)
+        
+        # Badge location row
+        badge_location_row = tk.Frame(options_container, bg='#3a3a3a')
+        badge_location_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        badge_location_label = tk.Label(badge_location_row, text="Badge location:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        badge_location_label.pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.badge_left_rb = tk.Radiobutton(badge_location_row, text="Left", 
+                                            variable=self.badge_location, value="left",
+                                            font=("Segoe UI", 10),
+                                            bg='#3a3a3a', fg='#e0e0e0',
+                                            selectcolor='#555555',
+                                            activebackground='#3c3c3c',
+                                            activeforeground='#e0e0e0')
+        self.badge_left_rb.pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.badge_right_rb = tk.Radiobutton(badge_location_row, text="Right", 
+                                             variable=self.badge_location, value="right",
+                                             font=("Segoe UI", 10),
+                                             bg='#3a3a3a', fg='#e0e0e0',
+                                             selectcolor='#555555',
+                                             activebackground='#3c3c3c',
+                                             activeforeground='#e0e0e0')
+        self.badge_right_rb.pack(side=tk.LEFT)
+        
+        # Sprite centering padding mode row
+        padding_mode_row = tk.Frame(options_container, bg='#3a3a3a')
+        padding_mode_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        padding_label = tk.Label(padding_mode_row, text="Sprite centering:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        padding_label.pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.padding_left_rb = tk.Radiobutton(padding_mode_row, text="Left padding", 
+                                              variable=self.padding_mode, value="left",
+                                              font=("Segoe UI", 10),
+                                              bg='#3a3a3a', fg='#e0e0e0',
+                                              selectcolor='#555555',
+                                              activebackground='#3c3c3c',
+                                              activeforeground='#e0e0e0')
+        self.padding_left_rb.pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.padding_right_rb = tk.Radiobutton(padding_mode_row, text="Right padding", 
+                                               variable=self.padding_mode, value="right",
+                                               font=("Segoe UI", 10),
+                                               bg='#3a3a3a', fg='#e0e0e0',
+                                               selectcolor='#555555',
+                                               activebackground='#3c3c3c',
+                                               activeforeground='#e0e0e0')
+        self.padding_right_rb.pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.padding_none_rb = tk.Radiobutton(padding_mode_row, text="No padding", 
+                                              variable=self.padding_mode, value="none",
+                                              font=("Segoe UI", 10),
+                                              bg='#3a3a3a', fg='#e0e0e0',
+                                              selectcolor='#555555',
+                                              activebackground='#3c3c3c',
+                                              activeforeground='#e0e0e0')
+        self.padding_none_rb.pack(side=tk.LEFT)
+        
+        # Custom padding row
+        custom_padding_row = tk.Frame(options_container, bg='#3a3a3a')
+        custom_padding_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        custom_padding_label = tk.Label(custom_padding_row, text="Custom padding:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        custom_padding_label.pack(side=tk.LEFT, padx=(0, 8))
+        
+        self.custom_padding_entry = tk.Entry(custom_padding_row, textvariable=self.custom_padding_px, 
+                                  width=8, font=("Segoe UI", 10),
+                                  relief=tk.FLAT, bd=1, bg='#4a4a4a', fg='#e0e0e0', insertbackground='#e0e0e0',
+                                  highlightthickness=1, highlightcolor='#8e44ad')
+        self.custom_padding_entry.pack(side=tk.LEFT, padx=(0, 8))
+        
+        custom_padding_px_label = tk.Label(custom_padding_row, text="px (blank: auto, uses badge width + gap)", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        custom_padding_px_label.pack(side=tk.LEFT)
+        
+        # Pre-badge scaling row
+        pre_scale_row = tk.Frame(options_container, bg='#3a3a3a')
+        pre_scale_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        pre_scale_label = tk.Label(pre_scale_row, text="Pre-badge scale:", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        pre_scale_label.pack(side=tk.LEFT, padx=(0, 8))
+        
+        self.pre_scale_entry = tk.Entry(pre_scale_row, textvariable=self.pre_badge_scale, 
+                                  width=6, font=("Segoe UI", 10),
+                                  relief=tk.FLAT, bd=1, bg='#4a4a4a', fg='#e0e0e0', insertbackground='#e0e0e0',
+                                  highlightthickness=1, highlightcolor='#8e44ad')
+        self.pre_scale_entry.pack(side=tk.LEFT, padx=(0, 8))
+        
+        pre_scale_pct_label = tk.Label(pre_scale_row, text="% (scales sprite before badges are added, 100 = no change)", 
+                font=("Segoe UI", 10),
+                bg='#3a3a3a', fg='#e0e0e0')
+        pre_scale_pct_label.pack(side=tk.LEFT)
+        
+        # Shiny Hunter Mode row
+        self.shiny_hunter_row = tk.Frame(options_container, bg='#3a3a3a')
+        self.shiny_hunter_row.pack(anchor=tk.W, pady=(0, 8))
+        
+        self.shiny_hunter_cb = tk.Checkbutton(self.shiny_hunter_row, text="✨ Shiny Hunter Mode", 
+                                         variable=self.shiny_hunter_mode,
+                                         command=self.toggle_shiny_mode,
+                                         font=("Segoe UI", 10, "bold"),
+                                         bg='#3a3a3a', fg='#f39c12',
+                                         selectcolor='#555555',
+                                         activebackground='#3c3c3c',
+                                         activeforeground='#f39c12')
+        self.shiny_hunter_cb.pack(side=tk.LEFT)
+        
+        # Shiny mode options (initially hidden but in correct position)
+        self.shiny_options_frame = tk.Frame(options_container, bg='#3a3a3a')
+        self.shiny_options_frame.pack(anchor=tk.W, pady=(0, 8))
+        self.shiny_options_frame.pack_forget()  # Hide initially
+        
+        mode1_rb = tk.Radiobutton(self.shiny_options_frame, 
+                                 text="Bullseye normals + Replacement shinies (Replacement sprites will not use sprite scaling)",
+                                 variable=self.shiny_mode_option,
+                                 value="bullseye_normal",
+                                 font=("Segoe UI", 9),
+                                 bg='#3a3a3a', fg='#c0c0c0',
+                                 selectcolor='#555555',
+                                 activebackground='#3c3c3c',
+                                 activeforeground='#e0e0e0')
+        mode1_rb.pack(anchor=tk.W, padx=(20, 0), pady=(0, 2))
+        
+        mode2_rb = tk.Radiobutton(self.shiny_options_frame, 
+                                 text="Replacement normals + Bullseye shinies (Bullseye sprites will use sprite scaling)",
+                                 variable=self.shiny_mode_option,
+                                 value="replacement_normal",
+                                 font=("Segoe UI", 9),
+                                 bg='#3a3a3a', fg='#c0c0c0',
+                                 selectcolor='#555555',
+                                 activebackground='#3c3c3c',
+                                 activeforeground='#e0e0e0')
+        mode2_rb.pack(anchor=tk.W, padx=(20, 0))
+        
+        # Option to skip badges on replacement sprites
+        skip_badges_cb = tk.Checkbutton(self.shiny_options_frame, 
+                                       text="Skip badges on replacement sprites (for badge-less shiny hunting)",
+                                       variable=self.skip_replacement_badges,
+                                       font=("Segoe UI", 9),
+                                       bg='#3a3a3a', fg='#c0c0c0',
+                                       selectcolor='#555555',
+                                       activebackground='#3c3c3c',
+                                       activeforeground='#e0e0e0')
+        skip_badges_cb.pack(anchor=tk.W, padx=(20, 0), pady=(8, 0))
     
     
     def create_utility_bar(self, parent):
@@ -448,6 +752,42 @@ class SpriteConverterGUI:
                                            width=12)
         self.unfulfilled_button.pack(side=tk.LEFT, padx=(0, 8))
         
+        # Settings buttons frame
+        settings_buttons_frame = tk.Frame(utility_frame, bg='#3a3a3a')
+        settings_buttons_frame.pack(side=tk.LEFT, padx=(0, 15))
+        
+        # Load Settings button
+        self.load_settings_button = tk.Button(settings_buttons_frame, text="📂 Load", 
+                                             command=self.load_settings_file,
+                                             font=("Segoe UI", 9),
+                                             bg='#5a5a5a', fg='#e0e0e0',
+                                             activebackground='#6a6a6a',
+                                             activeforeground='#ffffff',
+                                             relief=tk.FLAT, bd=0,
+                                             padx=10, pady=5,
+                                             cursor='hand2')
+        self.load_settings_button.pack(side=tk.LEFT, padx=(0, 5))
+        
+        # Save Settings button
+        self.save_settings_button = tk.Button(settings_buttons_frame, text="💾 Save", 
+                                             command=self.save_settings_file,
+                                             font=("Segoe UI", 9),
+                                             bg='#5a5a5a', fg='#e0e0e0',
+                                             activebackground='#6a6a6a',
+                                             activeforeground='#ffffff',
+                                             relief=tk.FLAT, bd=0,
+                                             padx=10, pady=5,
+                                             cursor='hand2')
+        self.save_settings_button.pack(side=tk.LEFT, padx=(0, 8))
+        
+        # Current settings file label
+        self.settings_file_var = tk.StringVar(value="(default)")
+        self.settings_file_label = tk.Label(settings_buttons_frame, 
+                                           textvariable=self.settings_file_var,
+                                           font=("Segoe UI", 8),
+                                           bg='#3a3a3a', fg='#808080')
+        self.settings_file_label.pack(side=tk.LEFT)
+        
         
         # Add hover effects
         self.add_button_hover_effects()
@@ -471,6 +811,12 @@ class SpriteConverterGUI:
         # Unfulfilled button hover
         self.unfulfilled_button.bind("<Enter>", lambda e: self.unfulfilled_button.config(bg='#c0392b'))
         self.unfulfilled_button.bind("<Leave>", lambda e: self.unfulfilled_button.config(bg='#e74c3c'))
+        
+        # Settings buttons hover
+        self.load_settings_button.bind("<Enter>", lambda e: self.load_settings_button.config(bg='#6a6a6a'))
+        self.load_settings_button.bind("<Leave>", lambda e: self.load_settings_button.config(bg='#5a5a5a'))
+        self.save_settings_button.bind("<Enter>", lambda e: self.save_settings_button.config(bg='#6a6a6a'))
+        self.save_settings_button.bind("<Leave>", lambda e: self.save_settings_button.config(bg='#5a5a5a'))
     
     def create_preview_section(self, parent):
         """Create dedicated preview section"""
@@ -498,6 +844,39 @@ class SpriteConverterGUI:
                                      justify=tk.CENTER,
                                      anchor=tk.CENTER)  # Center the image within the label
         self.preview_label.pack(fill=tk.BOTH, expand=True)
+        
+        # Preview button
+        self.preview_button = tk.Button(preview_frame, text="🔍 Generate Preview",
+                                       command=self.generate_settings_preview,
+                                       font=("Segoe UI", 9),
+                                       bg='#5a5a5a', fg='#e0e0e0',
+                                       activebackground='#6a6a6a',
+                                       activeforeground='#ffffff',
+                                       relief=tk.FLAT, bd=0,
+                                       cursor="hand2",
+                                       state=tk.DISABLED)  # Disabled until analysis completes
+        self.preview_button.pack(pady=(0, 5))
+        
+        # Pokédex number input for targeted preview
+        pokedex_frame = tk.Frame(preview_frame, bg='#3a3a3a')
+        pokedex_frame.pack(fill=tk.X, padx=5, pady=(0, 5))
+        
+        tk.Label(pokedex_frame, text="Dex #:",
+                font=("Segoe UI", 8),
+                bg='#3a3a3a', fg='#b0b0b0').pack(side=tk.LEFT)
+        
+        self.preview_pokedex_entry = tk.Entry(pokedex_frame, 
+                                              textvariable=self.preview_pokedex,
+                                              font=("Segoe UI", 9),
+                                              bg='#4a4a4a', fg='#e0e0e0',
+                                              insertbackground='#e0e0e0',
+                                              relief=tk.FLAT,
+                                              width=6)
+        self.preview_pokedex_entry.pack(side=tk.LEFT, padx=(3, 0))
+        
+        tk.Label(pokedex_frame, text="(blank = first)",
+                font=("Segoe UI", 7),
+                bg='#3a3a3a', fg='#808080').pack(side=tk.LEFT, padx=(5, 0))
     
     def create_progress_section(self, parent):
         """Create progress section"""
@@ -542,6 +921,19 @@ class SpriteConverterGUI:
                                 bg='#3a3a3a', fg='#e0e0e0',
                                 relief=tk.FLAT, bd=1)
         log_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 2))
+        
+        # Show logs checkbox at the top
+        show_logs_container = tk.Frame(log_frame, bg='#3a3a3a')
+        show_logs_container.pack(fill=tk.X, padx=6, pady=(8, 4))
+        
+        self.show_logs_cb = tk.Checkbutton(show_logs_container, text="Show logs", 
+                                         variable=self.show_logs,
+                                         font=("Segoe UI", 10),
+                                         bg='#3a3a3a', fg='#e0e0e0',
+                                         selectcolor='#555555',
+                                         activebackground='#3c3c3c',
+                                         activeforeground='#e0e0e0')
+        self.show_logs_cb.pack(side=tk.LEFT)
         
         # Log header with clear button
         log_header = tk.Frame(log_frame, bg='#3a3a3a', height=25)
@@ -1000,6 +1392,14 @@ class SpriteConverterGUI:
             self.log_entry.config(state=tk.DISABLED, disabledbackground='#5a5a5a')
             self.log_browse_btn.config(state=tk.DISABLED, bg='#555555')
     
+    def toggle_shiny_mode(self):
+        """Toggle shiny hunter mode options visibility"""
+        if self.shiny_hunter_mode.get():
+            # Pack after shiny_hunter_row to ensure correct position
+            self.shiny_options_frame.pack(after=self.shiny_hunter_row, anchor=tk.W, pady=(0, 8))
+        else:
+            self.shiny_options_frame.pack_forget()
+    
     def on_directory_change(self, *args):
         """Called when directory paths change - trigger file detection"""
         # Skip during initial setup to prevent duplicate detection
@@ -1057,6 +1457,7 @@ class SpriteConverterGUI:
             self.file_detection_complete = False  # Reset file detection completion flag
             self.refresh_btn.config(state=tk.DISABLED)
             self.start_button.config(state=tk.DISABLED)
+            self.preview_button.config(state=tk.DISABLED)
             
             # Clear the log console for fresh startup experience
             # self.log_text.delete(1.0, tk.END)  # Disabled for testing
@@ -1118,6 +1519,7 @@ class SpriteConverterGUI:
         self.file_detection_complete = False  # Reset file detection completion flag
         self.refresh_btn.config(state=tk.DISABLED)
         self.start_button.config(state=tk.DISABLED)
+        self.preview_button.config(state=tk.DISABLED)
         
         # Clear the log console for fresh experience
         self.clear_logs()
@@ -1204,6 +1606,7 @@ class SpriteConverterGUI:
                 self.analysis_running = False
                 self.root.after(0, lambda: self.start_button.config(state=tk.DISABLED))
                 self.root.after(0, lambda: self.refresh_btn.config(state=tk.NORMAL))
+                self.root.after(0, lambda: self.preview_button.config(state=tk.DISABLED))
                 return
             
             # Check replacement directory
@@ -1211,6 +1614,17 @@ class SpriteConverterGUI:
                 replacement_files = set(f.name for f in replacement_dir.glob("*.gif")) | set(f.name for f in replacement_dir.glob("*.png"))
                 if replacement_files:
                     info_summary.append(f"Found {len(replacement_files)} replacement sprites")
+                    
+                    # Calculate max heights for auto badge sizing
+                    try:
+                        from sprite_processor import scan_sprite_heights
+                        import logging
+                        height_logger = logging.getLogger("height_scan")
+                        height_logger.setLevel(logging.WARNING)  # Suppress info messages
+                        sprite_paths = [replacement_dir / f for f in replacement_files]
+                        self.calculated_max_front_height, self.calculated_max_back_height = scan_sprite_heights(sprite_paths, height_logger)
+                    except Exception as e:
+                        self.log_message(f"Height scan warning: {e}", "WARNING")
                 else:
                     warning_summary.append("No replacement sprites found")
             elif replacement_dir:
@@ -1223,6 +1637,7 @@ class SpriteConverterGUI:
                 self.analysis_running = False
                 self.root.after(0, lambda: self.start_button.config(state=tk.DISABLED))
                 self.root.after(0, lambda: self.refresh_btn.config(state=tk.NORMAL))
+                self.root.after(0, lambda: self.preview_button.config(state=tk.DISABLED))
                 return
             
             # Check output directory
@@ -1441,6 +1856,7 @@ class SpriteConverterGUI:
             self.file_detection_complete = True  # Mark file detection as complete
             self.root.after(0, lambda: self.refresh_btn.config(state=tk.NORMAL))
             self.root.after(0, lambda: self.unfulfilled_button.config(state=tk.NORMAL))
+            self.root.after(0, lambda: self.preview_button.config(state=tk.NORMAL))
             
             # Enable start button only if we have valid analysis results
             
@@ -1514,6 +1930,7 @@ class SpriteConverterGUI:
             self.stop_animated_progress()
             self.root.after(0, lambda: self.refresh_btn.config(state=tk.NORMAL))
             self.root.after(0, lambda: self.unfulfilled_button.config(state=tk.NORMAL))
+            self.root.after(0, lambda: self.preview_button.config(state=tk.DISABLED))
             
             # Keep start button disabled on analysis failure
             self.root.after(0, lambda: self.start_button.config(state=tk.DISABLED))
@@ -2607,7 +3024,7 @@ class SpriteConverterGUI:
         # Save settings to file
         self.save_settings()
 
-    def save_current_config(self, summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides):
+    def save_current_config(self, summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides, mod_name_var=None, mod_version_var=None, mod_description_var=None, desc_text=None, create_summary_table_var=None, create_front_table_var=None, create_back_table_var=None):
         """Save current scaling configuration without building mod"""
         try:
             # Validate scaling values
@@ -2627,8 +3044,28 @@ class SpriteConverterGUI:
             messagebox.showerror("Error", "Please enter valid numbers for all scaling values.")
             return
         
+        # Save mod metadata if provided
+        if mod_name_var and mod_version_var:
+            self.last_mod_name = mod_name_var.get().strip() or "LaserFocusInjectorMod"
+            self.last_mod_version = mod_version_var.get().strip() or "1.0"
+            if desc_text:
+                self.last_mod_description = desc_text.get(1.0, tk.END).strip() or "Built and scaled with LaserFocus Injector!"
+            elif mod_description_var:
+                self.last_mod_description = mod_description_var.get().strip() or "Built and scaled with LaserFocus Injector!"
+        
+        # Save table creation flags if provided
+        if create_summary_table_var is not None:
+            self.create_summary_table = create_summary_table_var.get()
+        if create_front_table_var is not None:
+            self.create_front_table = create_front_table_var.get()
+        if create_back_table_var is not None:
+            self.create_back_table = create_back_table_var.get()
+        
         # Save the configuration
         self._save_config_internal(summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides)
+        
+        # Also save all settings (including mod metadata)
+        self.save_settings()
         
         # Show confirmation message
         messagebox.showinfo("Save Complete", "Scaling configuration has been saved successfully!")
@@ -2707,10 +3144,10 @@ class SpriteConverterGUI:
         mod_description_var = tk.StringVar()
         additional_authors = []  # List to store additional authors
         
-        # Default values
-        mod_name_var.set("BullseyeInjectorMod")
-        mod_version_var.set("1.0")
-        mod_description_var.set("Built and scaled with Bullseye Injector!")
+        # Default values (use last saved values)
+        mod_name_var.set(getattr(self, 'last_mod_name', "LaserFocusInjectorMod"))
+        mod_version_var.set(getattr(self, 'last_mod_version', "1.0"))
+        mod_description_var.set(getattr(self, 'last_mod_description', "Built and scaled with LaserFocus Injector!"))
         
         # Mod Name Section
         name_frame = tk.LabelFrame(left_column, text="📦 Mod Name", 
@@ -2844,7 +3281,7 @@ class SpriteConverterGUI:
         
         # Description
         desc_label = tk.Label(scaling_frame, 
-                             text="Configure how Pokemon sprites are scaled in-game. Set default values for all Pokemon,\nthen use override buttons to customize specific ones.",
+                             text="Configure how Pokemon sprites are scaled in-game. Set default values for all replacement\n Pokemon, then use override buttons to customize specific ones.",
                              font=("Segoe UI", 9),
                              bg='#2c2c2c', fg='#b0b0b0',
                              justify=tk.LEFT,
@@ -2860,7 +3297,7 @@ class SpriteConverterGUI:
         
         # Summary Scale explanation
         summary_desc = tk.Label(explanations_section,
-                               text="📊 Summary Scale: Controls sprite size in Pokemon summary menus, Pokedex entries, and team selection screens",
+                               text="📊 Summary Scale: Controls sprite size in Pokemon summary menus",
                                font=("Segoe UI", 9),
                                bg='#2c2c2c', fg='#3498db',
                                wraplength=400,
@@ -2920,11 +3357,21 @@ class SpriteConverterGUI:
         # Debug logging to verify values are loaded correctly
         self.log_message(f"🔧 Loading scaling config: Summary={default_summary}, Front={default_front}, Back={default_back}", "INFO")
         
+        # Initialize checkbox variables
+        create_summary_table_var = tk.BooleanVar(value=self.create_summary_table)
+        create_front_table_var = tk.BooleanVar(value=self.create_front_table)
+        create_back_table_var = tk.BooleanVar(value=self.create_back_table)
+        
         # Summary Scale
         summary_frame = tk.Frame(defaults_section, bg='#3a3a3a')
         summary_frame.pack(fill=tk.X, pady=5)
-        tk.Label(summary_frame, text="📊 Summary Scale", 
-                font=("Segoe UI", 10), bg='#3a3a3a', fg='#3498db').pack(side=tk.LEFT)
+        tk.Checkbutton(summary_frame, text="📊 Summary Scale",
+                      variable=create_summary_table_var,
+                      font=("Segoe UI", 10),
+                      bg='#3a3a3a', fg='#3498db',
+                      selectcolor='#555555',
+                      activebackground='#3c3c3c',
+                      activeforeground='#3498db').pack(side=tk.LEFT)
         summary_var = tk.StringVar(value=default_summary)
         summary_entry = tk.Entry(summary_frame, textvariable=summary_var,
                                font=("Segoe UI", 10), width=8,
@@ -2938,8 +3385,13 @@ class SpriteConverterGUI:
         # Front Scale
         front_frame = tk.Frame(defaults_section, bg='#3a3a3a')
         front_frame.pack(fill=tk.X, pady=5)
-        tk.Label(front_frame, text="⚔️ Front Scale", 
-                font=("Segoe UI", 10), bg='#3a3a3a', fg='#e67e22').pack(side=tk.LEFT)
+        tk.Checkbutton(front_frame, text="⚔️ Front Scale",
+                      variable=create_front_table_var,
+                      font=("Segoe UI", 10),
+                      bg='#3a3a3a', fg='#e67e22',
+                      selectcolor='#555555',
+                      activebackground='#3c3c3c',
+                      activeforeground='#e67e22').pack(side=tk.LEFT)
         front_var = tk.StringVar(value=default_front)
         front_entry = tk.Entry(front_frame, textvariable=front_var,
                              font=("Segoe UI", 10), width=8,
@@ -2953,8 +3405,13 @@ class SpriteConverterGUI:
         # Back Scale
         back_frame = tk.Frame(defaults_section, bg='#3a3a3a')
         back_frame.pack(fill=tk.X, pady=5)
-        tk.Label(back_frame, text="🔄 Back Scale", 
-                font=("Segoe UI", 10), bg='#3a3a3a', fg='#9b59b6').pack(side=tk.LEFT)
+        tk.Checkbutton(back_frame, text="🔄 Back Scale",
+                      variable=create_back_table_var,
+                      font=("Segoe UI", 10),
+                      bg='#3a3a3a', fg='#9b59b6',
+                      selectcolor='#555555',
+                      activebackground='#3c3c3c',
+                      activeforeground='#9b59b6').pack(side=tk.LEFT)
         back_var = tk.StringVar(value=default_back)
         back_entry = tk.Entry(back_frame, textvariable=back_var,
                             font=("Segoe UI", 10), width=8,
@@ -3039,7 +3496,7 @@ class SpriteConverterGUI:
         buttons_container.pack(pady=(15, 0))
         
         save_btn = tk.Button(buttons_container, text="SAVE CONFIG", 
-                           command=lambda: self.save_current_config(summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides),
+                           command=lambda: self.save_current_config(summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides, mod_name_var, mod_version_var, mod_description_var, desc_text, create_summary_table_var, create_front_table_var, create_back_table_var),
                            font=("Segoe UI", 11, "bold"),
                            bg='#27ae60', fg='white',
                            relief=tk.FLAT, bd=0,
@@ -3113,18 +3570,23 @@ class SpriteConverterGUI:
                 messagebox.showerror("Error", "Please enter valid numbers for all scaling values.")
                 return
             
-            # Build authors string (UncleTyrone and Zoruah are always included)
-            authors = ["UncleTyrone", "Zoruah"] + additional_authors
+            # Build authors string (UncleTyrone, Zoruah, and 4beemaster are always included)
+            authors = ["UncleTyrone", "Zoruah", "4beemaster"] + additional_authors
             authors_string = ", ".join(authors)
             
             # Save the current configuration (without showing message box)
             self._save_config_internal(summary_var, front_var, back_var, summary_overrides, front_overrides, back_overrides)
             
+            # Save mod metadata for next time
+            self.last_mod_name = name
+            self.last_mod_version = version
+            self.last_mod_description = description or "Built and scaled with LaserFocus Injector!"
+            
             result[0] = {
                 'name': name,
                 'version': version,
                 'authors': authors_string,
-                'description': description or "Built and scaled with Bullseye Injector!",
+                'description': description or "Built and scaled with LaserFocus Injector!",
                 'custom_scaling': {
                     'summary_scale': summary_scale,
                     'front_scale': front_scale,
@@ -3134,7 +3596,10 @@ class SpriteConverterGUI:
                         'front': front_overrides["front"],
                         'back': back_overrides["back"]
                     }
-                }
+                },
+                'create_summary_table': create_summary_table_var.get(),
+                'create_front_table': create_front_table_var.get(),
+                'create_back_table': create_back_table_var.get()
             }
             dialog.destroy()
         
@@ -3162,8 +3627,13 @@ class SpriteConverterGUI:
         # Bind Enter key to add author
         author_entry.bind('<Return>', lambda e: add_author())
         
-        # Bind Enter key to OK
-        dialog.bind('<Return>', lambda e: on_ok())
+        # Bind Enter key to OK (but NOT when focus is in description text box)
+        def on_enter_key(event):
+            # Don't trigger OK if focus is in the description text box
+            if event.widget != desc_text:
+                on_ok()
+        
+        dialog.bind('<Return>', on_enter_key)
         dialog.bind('<Escape>', lambda e: on_cancel())
         
         # Focus on mod name entry
@@ -3202,7 +3672,7 @@ class SpriteConverterGUI:
         # Main description
         main_desc = ""
         if scale_type == "summary":
-            main_desc = "Summary Scale controls sprite size in Pokemon summary menus and Pokedex entries."
+            main_desc = "Summary Scale controls sprite size in Pokemon summary menus."
         elif scale_type == "front":
             main_desc = "Front Scale controls sprite size during battle scenes (Pokemon facing forward)."
         elif scale_type == "back":
@@ -3534,16 +4004,31 @@ class SpriteConverterGUI:
                 except ValueError:
                     limit = None
             
+            # Get badges directory and weaknesses JSON using resource paths
+            badges_dir = get_resource_path("badges")
+            weaknesses_json = get_resource_path("pokemon_weaknesses.json")
+            
+            # Validate required files
+            if not badges_dir.exists():
+                self.root.after(0, lambda: messagebox.showerror("Missing Files", f"Badges directory not found: {badges_dir}"))
+                self.processing = False
+                return
+            
+            if not weaknesses_json.exists():
+                self.root.after(0, lambda: messagebox.showerror("Missing Files", f"Weaknesses JSON not found: {weaknesses_json}"))
+                self.processing = False
+                return
+            
             # Count total files for progress
-            move_files = list(move_dir.glob("*.gif")) + list(move_dir.glob("*.png"))
-            total_files = len(move_files)
+            sprite_files = list(sprite_dir.glob("*.gif")) + list(sprite_dir.glob("*.png"))
+            total_files = len(sprite_files)
             if limit:
                 total_files = min(total_files, limit)
             
             self.root.after(0, lambda: self.status_var.set(f"Processing {total_files} sprites..."))
             
             # Create a custom logger that updates the GUI
-            from sprite_processor import configure_logging
+            from sprite_processor import configure_logging, load_weaknesses_data, parse_pokemon_info, load_animated_rgba_frames, union_frame_bbox
             
             # Configure logging
             logger = configure_logging(log_dir)
@@ -3555,285 +4040,238 @@ class SpriteConverterGUI:
             gui_handler.setFormatter(formatter)
             logger.addHandler(gui_handler)
             
-            # Run the pipeline
-            results = {}
-            sprite_scale_data = {}  # Track scale factors for dynamic scaling tables
-            # Only process GIF and PNG files, filter out other file types like .txt
-            move_paths = sorted(p for p in move_dir.iterdir() if p.is_file() and p.suffix.lower() in ['.gif', '.png'])
+            # Load weaknesses data
+            logger.info(f"Loading weaknesses data from {weaknesses_json}")
+            weaknesses_data = load_weaknesses_data(weaknesses_json)
+            logger.info(f"Loaded weaknesses for {len(weaknesses_data)} Pokemon")
+            
+            # Batch copy all Bullseye sprites to working directory as fallback (if enabled)
+            if self.use_bullseye_fallback.get():
+                try:
+                    from sprite_processor import copy_bullseye_sprites_as_fallback
+                    copy_bullseye_sprites_as_fallback(move_dir, working_dir, logger)
+                except FileNotFoundError as e:
+                    self.root.after(0, lambda: messagebox.showerror("Missing Required Files", str(e)))
+                    self.processing = False
+                    return
+            else:
+                logger.info("📋 Bullseye fallback disabled - only replacement sprites will be used")
+            
+            # Get all replacement sprite files to process
+            sprite_paths = sorted(p for p in sprite_dir.iterdir() if p.is_file() and p.suffix.lower() in ['.gif', '.png'])
+            
+            # Scan all sprites to determine max heights for badge scaling BEFORE filtering
+            # This ensures consistent badge sizing regardless of shiny hunter mode
+            from sprite_processor import scan_sprite_heights, calculate_badge_and_min_heights
+            max_front_height, max_back_height = scan_sprite_heights(sprite_paths, logger)
+            
+            # Apply pre-badge scale to max heights for badge calculation
+            # This ensures badges are sized for the final scaled output
+            pre_badge_scale_value = 100.0
+            try:
+                if self.pre_badge_scale.get().strip():
+                    pre_badge_scale_value = float(self.pre_badge_scale.get())
+            except ValueError:
+                pass
+            
+            if pre_badge_scale_value != 100.0 and pre_badge_scale_value > 0:
+                scale_factor = pre_badge_scale_value / 100.0
+                scaled_front_height = max_front_height * scale_factor
+                scaled_back_height = max_back_height * scale_factor
+                logger.info(f"Applying {pre_badge_scale_value:.0f}% scale to height calculations: front {max_front_height}->{int(scaled_front_height)}, back {max_back_height}->{int(scaled_back_height)}")
+                max_front_height = scaled_front_height
+                max_back_height = scaled_back_height
+            
+            # Shiny Hunter Mode processing - filter AFTER scanning heights
+            shiny_hunter_enabled = self.shiny_hunter_mode.get()
+            shiny_mode = self.shiny_mode_option.get()  # "bullseye_normal" or "replacement_normal"
+            
+            if shiny_hunter_enabled:
+                from sprite_processor import apply_shiny_hunter_filter
+                logger.info(f"✨ Shiny Hunter Mode ENABLED - Mode: {shiny_mode}")
+                sprite_paths = apply_shiny_hunter_filter(sprite_paths, shiny_mode, logger)
+            
+            # Check if we should process back sprites with badges
+            process_back_with_badges = self.process_back_sprites.get()
+            
+            # Apply limit by unique Pokemon IDs if specified
             if limit:
-                move_paths = move_paths[:limit]
+                from sprite_processor import apply_sprite_limit
+                sprite_paths = apply_sprite_limit(sprite_paths, limit, process_back_with_badges, logger)
+            
+            # Get override values from GUI if specified
+            badge_height_override = None
+            badge_height_percent = None  # For percentage mode, we calculate front/back separately
+            min_height_override = None
+            try:
+                if self.badge_height_var.get().strip():
+                    badge_value = float(self.badge_height_var.get())
+                    # For percentage mode, store the percentage and calculate front/back separately after
+                    if self.badge_height_unit.get() == "percent":
+                        badge_height_percent = badge_value
+                        logger.info(f"Badge height: {badge_value}% mode (front: {badge_value}% of {max_front_height:.0f}px, back: {badge_value}% of {max_back_height:.0f}px)")
+                    else:
+                        badge_height_override = badge_value
+            except ValueError:
+                logger.warning(f"Invalid badge height override value: {self.badge_height_var.get()}")
+            
+            try:
+                if self.min_height_var.get().strip():
+                    min_height_override = float(self.min_height_var.get())
+            except ValueError:
+                logger.warning(f"Invalid min height override value: {self.min_height_var.get()}")
+            
+            # Calculate target badge heights and minimum front sprite height
+            target_front_badge_height, target_back_badge_height, min_front_height = calculate_badge_and_min_heights(
+                max_front_height, max_back_height, logger, badge_height_override, min_height_override, pre_badge_scale_value
+            )
+            
+            # For percentage mode, override the calculated badge heights with percentage-based values
+            if badge_height_percent is not None:
+                target_front_badge_height = max_front_height * (badge_height_percent / 100.0) if max_front_height > 0 else 15.0
+                target_back_badge_height = max_back_height * (badge_height_percent / 100.0) if max_back_height > 0 else 15.0
+                logger.info(f"Badge heights (percentage mode): Front: {target_front_badge_height:.1f}px, Back: {target_back_badge_height:.1f}px")
+            
+            # Separate front and back sprites
+            from sprite_processor import separate_front_back_sprites
+            front_sprites, back_sprites = separate_front_back_sprites(sprite_paths)
+            
+            # Check if we should ignore back sprites entirely
+            ignore_backs = self.ignore_back_sprites.get()
+            if ignore_backs:
+                logger.info(f"Ignoring {len(back_sprites)} back sprites (ignore back sprites enabled)")
+                back_sprites = []  # Clear back sprites list
+            
+            logger.info(f"Found {len(front_sprites)} front sprites and {len(back_sprites)} back sprites")
+            
+            # Initialize results dictionary to track all processed sprites
+            results = {}
+            sprite_scale_data = {}
+            
+            # If not processing back sprites with badges, bulk copy them first
+            if not process_back_with_badges and back_sprites:
+                from sprite_processor import bulk_copy_back_sprites
+                # Note: GUI needs to handle cancellation, so we'll do it inline with cancellation check
+                import shutil
+                logger.info(f"Bulk copying {len(back_sprites)} back sprites without badge processing...")
+                copied_count = 0
+                for back_sprite in back_sprites:
+                    if not self.processing:
+                        break
+                    try:
+                        output_path = working_dir / back_sprite.name
+                        shutil.copy2(back_sprite, output_path)
+                        # Track bulk-copied back sprites as replacements (for scale tables)
+                        results[back_sprite.name] = str(output_path)
+                        copied_count += 1
+                    except Exception as exc:
+                        logger.warning(f"Failed to copy {back_sprite.name}: {exc}")
+                logger.info(f"📋 Batch copied {copied_count} back sprites (no badges)")
+            
+            # Determine which sprites to process with badges
+            from sprite_processor import determine_sprites_to_process
+            sprites_to_process = determine_sprites_to_process(sprite_paths, front_sprites, process_back_with_badges, logger)
             
             processed = 0
             
-            # First pass: Copy all bullseye sprites to working directory
-            logger.info("📋 Copying all bullseye sprites to working directory...")
-            for i, move_path in enumerate(move_paths):
-                if not self.processing:
-                    break
-                
-                # Copy the bullseye sprite to working directory
-                working_gif_path = working_dir / move_path.name
-                if not working_gif_path.exists():
-                    import shutil
-                    shutil.copy2(move_path, working_gif_path)
-                    logger.info(f"📋 Copied bullseye sprite: {move_path.name}")
-            
-            # Second pass: Process sprites that have replacement sprites
-            logger.info("🔄 Processing sprites with replacements...")
-            for i, move_path in enumerate(move_paths):
+            for i, sprite_path in enumerate(sprites_to_process):
                 if not self.processing:
                     break
                 
                 # Check for pause state
                 while self.paused and self.processing:
-                    time.sleep(0.1)  # Wait while paused
+                    time.sleep(0.1)
                 if not self.processing:
                     break
                 
-                sprite_path = sprite_dir / move_path.name
+                # Parse Pokemon info
+                pokemon_id, sprite_type, is_shiny = parse_pokemon_info(sprite_path.name)
+                if not pokemon_id or not sprite_type:
+                    logger.warning(f"{sprite_path.name}: skipping - unable to parse filename")
+                    continue
+                
+                # Determine target badge height based on sprite type
+                target_badge_height = target_front_badge_height if sprite_type == 'front' else target_back_badge_height
+                
+                # Get badge location, padding mode, and custom padding from GUI
+                badge_location = self.badge_location.get()
+                padding_mode = self.padding_mode.get()
+                custom_padding = None
+                try:
+                    if self.custom_padding_px.get().strip():
+                        custom_padding = int(self.custom_padding_px.get())
+                except ValueError:
+                    pass  # Use auto padding if invalid
+                
+                # Get pre-badge scale
+                pre_badge_scale = 100.0
+                try:
+                    if self.pre_badge_scale.get().strip():
+                        pre_badge_scale = float(self.pre_badge_scale.get())
+                except ValueError:
+                    pass  # Use default 100% if invalid
+                
+                # Check if we should skip badges (shiny hunter mode option)
+                skip_badges = shiny_hunter_enabled and self.skip_replacement_badges.get()
                 
                 # Update progress
-                progress = (i / len(move_paths)) * 100
+                progress = (i / len(sprites_to_process)) * 100
                 self.root.after(0, lambda p=progress: self.update_progress_bar(p))
-                self.root.after(0, lambda f=move_path.name: self.status_var.set(f"🎯 Processing FRONT: {f}"))
-                
-                # Check if we have a replacement sprite for this bullseye sprite
-                if not sprite_path.exists():
-                    # No replacement sprite, keep the original bullseye sprite
-                    logger.info(f"📋 No replacement found for {move_path.name}, keeping original")
-                    results[move_path.name] = str(working_dir / move_path.name)
-                    
-                    
-                    continue
+                self.root.after(0, lambda f=sprite_path.name, t=sprite_type.upper(): self.status_var.set(f"🎯 Processing {t}: {f}"))
                 
                 try:
                     from sprite_processor import process_pair
-                    result = process_pair(move_path, sprite_path, working_dir, logger)
+                    result = process_pair(sprite_path, working_dir, logger, badges_dir, weaknesses_data, 
+                                         target_badge_height, min_front_height, badge_location, padding_mode, custom_padding,
+                                         pre_badge_scale, skip_badges)
                     if result:
-                        results[move_path.name] = result
+                        # In Shiny Hunter Mode 1 (bullseye_normal), skip adding shiny sprites to results
+                        # This prevents them from being added to scale override tables
+                        skip_result = (shiny_hunter_enabled and 
+                                      shiny_mode == "bullseye_normal" and 
+                                      is_shiny and 
+                                      sprite_type == 'front')
+                        
+                        if not skip_result:
+                            results[sprite_path.name] = result
+                            
+                            # Collect canvas size data
+                            if 'canvas_size' in result:
+                                sprite_scale_data[sprite_path.name] = result['canvas_size']
+                        else:
+                            logger.info(f"✨ {sprite_path.name}: Shiny sprite processed but excluded from scale tables (using Bullseye originals for normals)")
+                        
                         processed += 1
                         
-                        # Collect canvas size data for dynamic scaling tables
-                        if 'canvas_size' in result:
-                            sprite_scale_data[move_path.name] = result['canvas_size']
-                        
-                        # Update preview with the processed GIF
-                        working_gif_path = working_dir / move_path.name
+                        # Update preview
+                        working_gif_path = working_dir / sprite_path.name
                         if working_gif_path.exists():
-                            self.root.after(0, lambda path=working_gif_path, name=move_path.name: self.update_preview(path, name))
-                        
-                        # Check if there's a corresponding back file to process
-                        # Only look for back files if this is actually a front sprite
-                        if '-front-' in move_path.name or '-normal-' in move_path.name:
-                            # Handle gender variants exactly like main files
-                            back_file_name = move_path.name.replace('-front-', '-back-').replace('-normal-', '-back-')
-                            back_sprite_path = sprite_dir / back_file_name
-                            
-                            # If exact back file doesn't exist, check for gender variants
-                            if not back_sprite_path.exists():
-                                # Check for male variant (if front file has -m, look for back-m)
-                                if '-m.gif' in move_path.name:
-                                    back_male = back_file_name.replace('.gif', '-m.gif')
-                                    back_male_path = sprite_dir / back_male
-                                    if back_male_path.exists():
-                                        back_file_name = back_male
-                                        back_sprite_path = back_male_path
-                                # Check for female variant (if front file has -f, look for back-f)
-                                elif '-f.gif' in move_path.name:
-                                    back_female = back_file_name.replace('.gif', '-f.gif')
-                                    back_female_path = sprite_dir / back_female
-                                    if back_female_path.exists():
-                                        back_file_name = back_female
-                                        back_sprite_path = back_female_path
-                                else:
-                                    # Front file has no gender variant, check for any available back variants
-                                    back_male = back_file_name.replace('.gif', '-m.gif')
-                                    back_female = back_file_name.replace('.gif', '-f.gif')
-                                    
-                                    back_male_path = sprite_dir / back_male
-                                    back_female_path = sprite_dir / back_female
-                                    
-                                    if back_male_path.exists():
-                                        back_file_name = back_male
-                                        back_sprite_path = back_male_path
-                                    elif back_female_path.exists():
-                                        back_file_name = back_female
-                                        back_sprite_path = back_female_path
-                            
-                            if back_sprite_path.exists():
-                                # Process back file using same method as front sprite
-                                self.root.after(0, lambda f=back_file_name: self.status_var.set(f"🔄 Processing BACK: {f}"))
-                                logger.info(f"🔄 Processing back file: {back_file_name}")
-                                
-                                try:
-                                    from PIL import Image
-                                    from sprite_processor import load_animated_rgba_frames, union_frame_bbox
-                                    
-                                    # Load all frames from the back sprite
-                                    back_frames, back_durations, back_loop, back_disposals = load_animated_rgba_frames(back_sprite_path)
-                                    
-                                    # Get the union bounding box of the back sprite (same method as front)
-                                    back_bbox = union_frame_bbox(back_frames)
-                                    if back_bbox:
-                                        back_content_width = back_bbox[2] - back_bbox[0]
-                                        back_content_height = back_bbox[3] - back_bbox[1]
-                                        
-                                        # Get the front sprite's bounding box from the processing result
-                                        if 'main_bbox' in result:
-                                            front_bbox = result['main_bbox']
-                                            front_bbox_width = front_bbox[2] - front_bbox[0]
-                                            front_bbox_height = front_bbox[3] - front_bbox[1]
-                                            
-                                            # Get the front sprite's canvas size from the processing result
-                                            if 'canvas_size' in result:
-                                                front_canvas_size = result['canvas_size']
-                                            else:
-                                                # Fallback: use the original bullseye canvas size
-                                                with Image.open(move_path) as original_img:
-                                                    front_canvas_size = original_img.size
-                                            
-                                            # Use the front sprite's canvas size for the back sprite canvas
-                                            front_canvas_width, front_canvas_height = front_canvas_size
-                                            
-                                            # Calculate the front sprite's position and proportion within its canvas
-                                            front_bbox_width = front_bbox[2] - front_bbox[0]
-                                            front_bbox_height = front_bbox[3] - front_bbox[1]
-                                            front_center_x = (front_bbox[0] + front_bbox[2]) / 2
-                                            front_center_y = (front_bbox[1] + front_bbox[3]) / 2
-                                            
-                                            # Calculate what percentage of the canvas the front sprite occupies
-                                            front_width_percentage = front_bbox_width / front_canvas_width
-                                            front_height_percentage = front_bbox_height / front_canvas_height
-                                            
-                                            # Use the back sprite bounding box size (no scaling)
-                                            target_width = back_content_width
-                                            target_height = back_content_height
-                                            
-                                            # Use stock back sprite frames (no scaling)
-                                            resized_back_frames = []
-                                            for frame in back_frames:
-                                                frame = frame.convert("RGBA")
-                                                
-                                                # Crop to the back sprite's bounding box
-                                                cropped_frame = frame.crop(back_bbox)
-                                                
-                                                # Create a canvas the same size as the front sprite's canvas
-                                                canvas_frame = Image.new('RGBA', front_canvas_size, (0, 0, 0, 0))
-                                                
-                                                # Calculate the proportion of sprite to canvas for the front sprite
-                                                front_sprite_width = front_bbox[2] - front_bbox[0]
-                                                front_sprite_height = front_bbox[3] - front_bbox[1]
-                                                front_sprite_to_canvas_ratio_x = front_sprite_width / front_canvas_width
-                                                front_sprite_to_canvas_ratio_y = front_sprite_height / front_canvas_height
-                                                
-                                                # Get the back sprite's content dimensions
-                                                back_content_width = back_bbox[2] - back_bbox[0]
-                                                back_content_height = back_bbox[3] - back_bbox[1]
-                                                
-                                                # Calculate the back canvas size needed to maintain the same sprite-to-canvas ratio
-                                                # Use average of both ratios with a cap to prevent extreme scaling
-                                                base_ratio = (front_sprite_to_canvas_ratio_x + front_sprite_to_canvas_ratio_y) / 2
-                                                # Cap the base ratio to prevent extreme scaling (max 0.8 to keep sprites reasonable)
-                                                capped_ratio = min(base_ratio, 0.45)
-                                                target_ratio = capped_ratio * 1.50
-                                                
-                                                # Calculate new canvas dimensions based on the target ratio
-                                                base_canvas_width = int(back_content_width / target_ratio)
-                                                base_canvas_height = int(back_content_height / target_ratio)
-                                                
-                                                # Now match the front sprite's aspect ratio
-                                                front_aspect_ratio = front_canvas_width / front_canvas_height
-                                                
-                                                # Adjust the canvas to match the front sprite's aspect ratio
-                                                if front_aspect_ratio > (base_canvas_width / base_canvas_height):
-                                                    # Front is wider relative to its height, so make back canvas wider
-                                                    new_canvas_width = int(base_canvas_height * front_aspect_ratio)
-                                                    new_canvas_height = base_canvas_height
-                                                else:
-                                                    # Front is taller relative to its width, so make back canvas taller
-                                                    new_canvas_width = base_canvas_width
-                                                    new_canvas_height = int(base_canvas_width / front_aspect_ratio)
-                                                
-                                                # Create new canvas with matched aspect ratio
-                                                canvas_frame = Image.new('RGBA', (new_canvas_width, new_canvas_height), (0, 0, 0, 0))
-                                                
-                                                # Position the back sprite at the bottom of the canvas with a small margin
-                                                # This ensures grounded Pokemon stay grounded while floating Pokemon can still float
-                                                paste_y = new_canvas_height - target_height - 10
-                                                
-                                                # Center horizontally
-                                                paste_x = (new_canvas_width - target_width) // 2
-                                                
-                                                # Ensure it doesn't go outside the canvas bounds
-                                                paste_x = max(0, min(paste_x, new_canvas_width - target_width))
-                                                paste_y = max(0, min(paste_y, new_canvas_height - target_height))
-                                                
-                                                canvas_frame.paste(cropped_frame, (paste_x, paste_y), cropped_frame)
-                                                resized_back_frames.append(canvas_frame)
-                                            
-                                            current_size = back_frames[0].size
-                                            new_size = resized_back_frames[0].size
-                                            back_output_path = working_dir / back_file_name
-                                            
-                                            if len(resized_back_frames) > 1:
-                                                resized_back_frames[0].save(back_output_path, format='GIF', save_all=True,
-                                                                           append_images=resized_back_frames[1:],
-                                                                           duration=back_durations, loop=back_loop,
-                                                                           disposal=back_disposals)
-                                            else:
-                                                resized_back_frames[0].save(back_output_path, format='GIF')
-                                                
-                                            # Calculate scale for logging (canvas size change)
-                                            canvas_scale = front_canvas_width / back_frames[0].size[0]  # How much the canvas was scaled
-                                            logger.info(f"🔄 Processed back file {back_file_name}: {current_size[0]}x{current_size[1]} -> {new_size[0]}x{new_size[1]} (canvas scale: {canvas_scale:.2f})")
-                                                    
-                                            # Update preview with the processed back GIF
-                                            self.root.after(0, lambda path=back_output_path, name=back_file_name: self.update_preview(path, name))
-                                                    
-                                            results[back_file_name] = str(back_output_path)
-                                            processed += 1
-                                            logger.info(f"✅ Successfully processed back file: {back_file_name}")
-                                        else:
-                                            logger.warning(f"⚠️ No front sprite bounding box found for back file: {back_file_name}")
-                                    else:
-                                        logger.warning(f"⚠️ No content found in back file: {back_file_name}")
-                                            
-                                except Exception as back_exc:
-                                    logger.exception(f"❌ Failed to process back file {back_file_name}: {back_exc}")
+                            self.root.after(0, lambda path=working_gif_path, name=sprite_path.name: self.update_preview(path, name))
                         
                 except Exception as exc:
-                    logger.exception("%s: failed to process pair due to %s", move_path.name, exc)
+                    logger.exception(f"{sprite_path.name}: failed to process due to {exc}")
             
-            # No orphaned sprite processing - extra files are simply ignored
-            
-            # Save results
-            summary_path = log_dir / "bounding_boxes.json"
-            with summary_path.open("w", encoding="utf-8") as fh:
-                json.dump(results, fh, indent=2)
+            # Save processing summary
+            from sprite_processor import save_processing_summary
+            save_processing_summary(results, log_dir, logger)
             
             # Update final status
             self.root.after(0, lambda: self.stop_animated_progress())
             self.root.after(0, lambda: self.status_var.set(f"Completed! Processed {processed} sprites successfully"))
             
             # Count different types of processed sprites for detailed summary
-            bullseye_names = [p.name for p in move_paths]
-            
-            # Count sprites by type
-            custom_replacements = len([f for f in results.keys() if f in bullseye_names])
+            front_sprites = len([f for f in results.keys() if '-front-' in f])
             back_sprites = len([f for f in results.keys() if '-back-' in f])
-            remaining_bullseye = len(bullseye_names) - custom_replacements
             
             # Build summary parts
             summary_parts = []
-            if custom_replacements > 0:
-                summary_parts.append(f"{custom_replacements} custom replacements")
-            if remaining_bullseye > 0:
-                summary_parts.append(f"{remaining_bullseye} remaining bullseye")
+            if front_sprites > 0:
+                summary_parts.append(f"{front_sprites} front sprites")
             if back_sprites > 0:
                 summary_parts.append(f"{back_sprites} back sprites")
             
-            total_in_mod = custom_replacements + remaining_bullseye + back_sprites
-            detailed_summary = f"🎉 SUCCESS: Processing completed! {processed} sprites processed -> {total_in_mod} sprites in mod ({', '.join(summary_parts)})"
+            total_in_mod = len(results)
+            detailed_summary = f"🎉 SUCCESS: Processing completed! {processed} sprites processed ({', '.join(summary_parts)})"
             self.root.after(0, lambda: self.log_message(detailed_summary, "SUCCESS"))
             
             # Stop preview cycling to prevent errors after cleanup
@@ -3857,7 +4295,12 @@ class SpriteConverterGUI:
                     mod_description=config['description'],
                     target_game="PokeMMO",
                     sprite_scale_data=sprite_scale_data,
-                    custom_scaling=config.get('custom_scaling')
+                    custom_scaling=config.get('custom_scaling'),
+                    replacement_sprite_names=set(results.keys()),
+                    create_summary_table=config.get('create_summary_table', True),
+                    create_front_table=config.get('create_front_table', True),
+                    create_back_table=config.get('create_back_table', True),
+                    use_mod_zip_extension=self.use_mod_zip_extension.get()
                 )
                 
                 # Log success
@@ -3984,6 +4427,235 @@ class SpriteConverterGUI:
         if self.preview_label:
             self.preview_label.configure(image="", text="No sprites\nprocessed yet")
             self.preview_label.image = None
+    
+    def generate_settings_preview(self):
+        """Generate a preview of the first sprite with current settings"""
+        import tempfile
+        import threading
+        
+        # Validate directories
+        sprite_dir = self.sprite_dir.get()
+        if not sprite_dir or not Path(sprite_dir).exists():
+            messagebox.showwarning("Preview Error", "Please select a valid Replacement Sprites directory first.")
+            return
+        
+        # Get sprite files
+        sprite_dir_path = Path(sprite_dir)
+        sprite_files = sorted(p for p in sprite_dir_path.iterdir() 
+                             if p.is_file() and p.suffix.lower() in ['.gif', '.png'] 
+                             and '-front-' in p.name.lower())
+        
+        if not sprite_files:
+            # Try any sprite if no front sprites found
+            sprite_files = sorted(p for p in sprite_dir_path.iterdir() 
+                                 if p.is_file() and p.suffix.lower() in ['.gif', '.png'])
+        
+        if not sprite_files:
+            messagebox.showwarning("Preview Error", "No sprite files found in the selected directory.")
+            return
+        
+        # Check if a specific Pokédex number was requested
+        target_sprite = None
+        pokedex_input = self.preview_pokedex.get().strip()
+        if pokedex_input:
+            # Try to find a sprite matching the Pokédex number
+            try:
+                pokedex_num = int(pokedex_input)
+                pokedex_str = str(pokedex_num).zfill(3)  # Pad to 3 digits (e.g., "001", "025")
+                for sprite_file in sprite_files:
+                    if sprite_file.name.startswith(f"{pokedex_str}-"):
+                        target_sprite = sprite_file
+                        break
+                if not target_sprite:
+                    messagebox.showwarning("Preview Error", f"No sprite found for Pokédex #{pokedex_num}")
+                    return
+            except ValueError:
+                messagebox.showwarning("Preview Error", "Please enter a valid Pokédex number (e.g., 25 for Pikachu)")
+                return
+        else:
+            # Use first sprite if no specific number requested
+            target_sprite = sprite_files[0]
+        
+        # Update preview label to show loading
+        if self.preview_label:
+            self.preview_label.configure(image="", text="Generating\npreview...")
+            self.preview_label.image = None
+        
+        # Run preview generation in a thread to avoid blocking UI
+        def generate_preview_thread():
+            try:
+                from sprite_processor import (process_pair, load_weaknesses_data, 
+                                            parse_pokemon_info, scan_sprite_heights,
+                                            calculate_badge_and_min_heights)
+                from pathlib import Path
+                import logging
+                
+                # Create a simple logger
+                logger = logging.getLogger("preview")
+                logger.setLevel(logging.WARNING)  # Suppress info messages
+                
+                # Get badges directory
+                badges_dir = Path(__file__).parent / "badges"
+                if not badges_dir.exists():
+                    self.root.after(0, lambda: messagebox.showwarning("Preview Error", "Badges directory not found."))
+                    return
+                
+                # Load weaknesses data
+                weaknesses_json = Path(__file__).parent / "pokemon_weaknesses.json"
+                if not weaknesses_json.exists():
+                    self.root.after(0, lambda: messagebox.showwarning("Preview Error", "Pokemon weaknesses data not found."))
+                    return
+                
+                weaknesses_data = load_weaknesses_data(weaknesses_json)
+                
+                # Use pre-calculated heights if available, otherwise scan just this sprite
+                if self.calculated_max_front_height > 0 or self.calculated_max_back_height > 0:
+                    max_front_height = self.calculated_max_front_height
+                    max_back_height = self.calculated_max_back_height
+                else:
+                    # Fallback: calculate from just this sprite if no analysis done yet
+                    max_front_height, max_back_height = scan_sprite_heights([target_sprite], logger)
+                
+                # Apply pre-badge scale to max heights for badge calculation
+                pre_badge_scale = 100.0
+                try:
+                    if self.pre_badge_scale.get().strip():
+                        pre_badge_scale = float(self.pre_badge_scale.get())
+                except ValueError:
+                    pass
+                
+                if pre_badge_scale != 100.0 and pre_badge_scale > 0:
+                    scale_factor = pre_badge_scale / 100.0
+                    max_front_height = max_front_height * scale_factor
+                    max_back_height = max_back_height * scale_factor
+                
+                # Get override values
+                badge_height_override = None
+                badge_height_percent = None  # For percentage mode
+                min_height_override = None
+                try:
+                    if self.badge_height_var.get().strip():
+                        badge_value = float(self.badge_height_var.get())
+                        # For percentage mode, store the percentage and calculate front/back separately after
+                        if self.badge_height_unit.get() == "percent":
+                            badge_height_percent = badge_value
+                        else:
+                            badge_height_override = badge_value
+                except ValueError:
+                    pass
+                try:
+                    if self.min_height_var.get().strip():
+                        min_height_override = float(self.min_height_var.get())
+                except ValueError:
+                    pass
+                
+                target_front_badge_height, target_back_badge_height, min_front_height = calculate_badge_and_min_heights(
+                    max_front_height, max_back_height, logger, badge_height_override, min_height_override, pre_badge_scale
+                )
+                
+                # For percentage mode, override the calculated badge heights with percentage-based values
+                if badge_height_percent is not None:
+                    target_front_badge_height = max_front_height * (badge_height_percent / 100.0) if max_front_height > 0 else 15.0
+                    target_back_badge_height = max_back_height * (badge_height_percent / 100.0) if max_back_height > 0 else 15.0
+                
+                # Determine sprite type
+                pokemon_id, sprite_type, is_shiny = parse_pokemon_info(target_sprite.name)
+                target_badge_height = target_front_badge_height if sprite_type == 'front' else target_back_badge_height
+                
+                # Get current settings
+                badge_location = self.badge_location.get()
+                padding_mode = self.padding_mode.get()
+                custom_padding = None
+                try:
+                    if self.custom_padding_px.get().strip():
+                        custom_padding = int(self.custom_padding_px.get())
+                except ValueError:
+                    pass
+                
+                # Get pre-badge scale
+                pre_badge_scale = 100.0
+                try:
+                    if self.pre_badge_scale.get().strip():
+                        pre_badge_scale = float(self.pre_badge_scale.get())
+                except ValueError:
+                    pass
+                
+                # Check if we should skip badges (shiny hunter mode option)
+                skip_badges = self.shiny_hunter_mode.get() and self.skip_replacement_badges.get()
+                
+                # Create temp directory for preview
+                with tempfile.TemporaryDirectory() as temp_dir:
+                    temp_path = Path(temp_dir)
+                    
+                    # Process the sprite
+                    result = process_pair(target_sprite, temp_path, logger, badges_dir, weaknesses_data,
+                                         target_badge_height, min_front_height, badge_location, 
+                                         padding_mode, custom_padding, pre_badge_scale, skip_badges)
+                    
+                    if result and 'output_path' in result:
+                        output_path = Path(result['output_path'])
+                        if output_path.exists():
+                            # Read image data into memory BEFORE temp dir is cleaned up
+                            from PIL import Image
+                            import io
+                            
+                            with Image.open(output_path) as img:
+                                # For animated GIFs, get the first frame
+                                if hasattr(img, 'n_frames') and img.n_frames > 1:
+                                    img.seek(0)
+                                # Convert to RGBA for consistent handling
+                                if img.mode != 'RGBA':
+                                    img = img.convert('RGBA')
+                                # Store a copy of the image data
+                                img_copy = img.copy()
+                            
+                            # Display the preview (image is now in memory, temp dir can be cleaned)
+                            self.root.after(0, lambda i=img_copy, n=target_sprite.name: 
+                                          self._display_preview_image(i, n))
+                        else:
+                            self.root.after(0, lambda: self._preview_error("Preview file not created."))
+                    else:
+                        self.root.after(0, lambda: self._preview_error("Failed to process sprite."))
+                        
+            except Exception as e:
+                self.root.after(0, lambda err=str(e): self._preview_error(f"Preview error: {err}"))
+        
+        # Start the preview thread
+        preview_thread = threading.Thread(target=generate_preview_thread, daemon=True)
+        preview_thread.start()
+    
+    def _display_preview_image(self, img, filename):
+        """Display a preview image in the preview label"""
+        try:
+            from PIL import ImageTk
+            
+            # Scale to fit preview area
+            max_size = 180
+            scale_x = max_size / img.width
+            scale_y = max_size / img.height
+            base_scale = min(scale_x, scale_y, 1.0)
+            
+            new_width = int(img.width * base_scale)
+            new_height = int(img.height * base_scale)
+            
+            from PIL import Image
+            img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+            
+            photo = ImageTk.PhotoImage(img)
+            
+            if self.preview_label:
+                self.preview_label.configure(image=photo, text="")
+                self.preview_label.image = photo  # Keep reference
+                
+        except Exception as e:
+            self._preview_error(f"Display error: {str(e)}")
+    
+    def _preview_error(self, message):
+        """Show preview error in the preview label"""
+        if self.preview_label:
+            self.preview_label.configure(image="", text="Preview\nfailed")
+            self.preview_label.image = None
+        self.log_message(message, "WARNING")
     
     def update_preview(self, gif_path, filename):
         """Add a new processed GIF to the preview queue"""
@@ -5985,8 +6657,24 @@ class SpriteConverterGUI:
                 self.fixes_search_entry.config(fg='#95a5a6')
     
     def save_settings(self):
-        """Save current settings"""
-        settings = {
+        """Save current settings to default file and last used file"""
+        default_file = Path("sprite_converter_settings.json").absolute()
+        
+        # Always save to default file
+        self._save_settings_to_file(default_file)
+        
+        # Also save to last used file if it's different from default
+        if self.last_settings_file:
+            last_file_abs = self.last_settings_file.absolute()
+            if last_file_abs != default_file:
+                try:
+                    self._save_settings_to_file(self.last_settings_file)
+                except Exception:
+                    pass  # Non-critical
+    
+    def _get_settings_dict(self):
+        """Get current settings as a dictionary"""
+        return {
             "move_dir": self.move_dir.get(),
             "sprite_dir": self.sprite_dir.get(),
             "output_dir": self.output_dir.get(),
@@ -5995,6 +6683,18 @@ class SpriteConverterGUI:
             "process_all": self.process_all.get(),
             "show_logs": self.show_logs.get(),
             "limit": self.limit_var.get(),
+            "badge_height": self.badge_height_var.get(),
+            "badge_height_unit": self.badge_height_unit.get(),
+            "min_height": self.min_height_var.get(),
+            "use_bullseye_fallback": self.use_bullseye_fallback.get(),
+            # Save shiny hunter settings
+            "shiny_hunter_mode": self.shiny_hunter_mode.get(),
+            "shiny_mode_option": self.shiny_mode_option.get(),
+            "skip_replacement_badges": self.skip_replacement_badges.get(),
+            # Save mod metadata
+            "mod_name": getattr(self, 'last_mod_name', "LaserFocusInjectorMod"),
+            "mod_version": getattr(self, 'last_mod_version', "1.0"),
+            "mod_description": getattr(self, 'last_mod_description', "Built and scaled with LaserFocus Injector!"),
             # Save scaling configuration
             "default_summary_scale": getattr(self, 'default_summary_scale', 2.7),
             "default_front_scale": getattr(self, 'default_front_scale', 1.0),
@@ -6002,46 +6702,190 @@ class SpriteConverterGUI:
             "detection_threshold": getattr(self, 'detection_threshold', 1.10),
             "summary_overrides": getattr(self, 'summary_overrides', {}),
             "front_overrides": getattr(self, 'front_overrides', {}),
-            "back_overrides": getattr(self, 'back_overrides', {})
+            "back_overrides": getattr(self, 'back_overrides', {}),
+            # Table creation flags
+            "create_summary_table": getattr(self, 'create_summary_table', True),
+            "create_front_table": getattr(self, 'create_front_table', True),
+            "create_back_table": getattr(self, 'create_back_table', True),
+            # Badge location, padding mode and custom padding
+            "badge_location": self.badge_location.get(),
+            "padding_mode": self.padding_mode.get(),
+            "custom_padding_px": self.custom_padding_px.get(),
+            # Pre-badge scaling
+            "pre_badge_scale": self.pre_badge_scale.get(),
+            # Back sprite options
+            "ignore_back_sprites": self.ignore_back_sprites.get(),
+            # Output format options
+            "use_mod_zip_extension": self.use_mod_zip_extension.get()
         }
-        
-        settings_file = Path("sprite_converter_settings.json")
+    
+    def _save_settings_to_file(self, settings_file):
+        """Save settings to a specific file"""
+        settings = self._get_settings_dict()
         with settings_file.open("w") as f:
             json.dump(settings, f, indent=2)
     
-    def load_settings(self):
-        """Load saved settings"""
-        settings_file = Path("sprite_converter_settings.json")
-        if settings_file.exists():
-            try:
-                with settings_file.open("r") as f:
-                    settings = json.load(f)
-                
-                self.move_dir.set(settings.get("move_dir", ""))
-                self.sprite_dir.set(settings.get("sprite_dir", ""))
-                self.output_dir.set(settings.get("output_dir", ""))
-                self.log_dir.set(settings.get("log_dir", "logs"))
-                self.use_custom_log_dir.set(settings.get("use_custom_log_dir", False))
-                self.process_all.set(settings.get("process_all", True))
-                self.show_logs.set(settings.get("show_logs", True))
-                self.limit_var.set(settings.get("limit", ""))
-                
-                # Load scaling configuration
-                self.default_summary_scale = settings.get("default_summary_scale", 2.7)
-                self.default_front_scale = settings.get("default_front_scale", 1.0)
-                self.default_back_scale = settings.get("default_back_scale", 1.0)
-                self.detection_threshold = settings.get("detection_threshold", 1.10)
-                self.summary_overrides = settings.get("summary_overrides", {})
-                self.front_overrides = settings.get("front_overrides", {})
-                self.back_overrides = settings.get("back_overrides", {})
-                
-                # Apply the log directory toggle state
-                self.toggle_log_dir()
-                
-                # Check directories after loading settings with background threading
+    def _load_settings_from_file(self, settings_file, refresh_after=False):
+        """Load settings from a specific file"""
+        try:
+            with settings_file.open("r") as f:
+                settings = json.load(f)
+            
+            self.move_dir.set(settings.get("move_dir", ""))
+            self.sprite_dir.set(settings.get("sprite_dir", ""))
+            self.output_dir.set(settings.get("output_dir", ""))
+            self.log_dir.set(settings.get("log_dir", "logs"))
+            self.use_custom_log_dir.set(settings.get("use_custom_log_dir", False))
+            self.process_all.set(settings.get("process_all", True))
+            self.show_logs.set(settings.get("show_logs", True))
+            self.limit_var.set(settings.get("limit", ""))
+            self.badge_height_var.set(settings.get("badge_height", ""))
+            self.badge_height_unit.set(settings.get("badge_height_unit", "px"))
+            self.min_height_var.set(settings.get("min_height", ""))
+            self.use_bullseye_fallback.set(settings.get("use_bullseye_fallback", True))
+            
+            # Load shiny hunter settings
+            self.shiny_hunter_mode.set(settings.get("shiny_hunter_mode", False))
+            self.shiny_mode_option.set(settings.get("shiny_mode_option", "bullseye_normal"))
+            self.skip_replacement_badges.set(settings.get("skip_replacement_badges", False))
+            
+            # Load mod metadata
+            self.last_mod_name = settings.get("mod_name", "LaserFocusInjectorMod")
+            self.last_mod_version = settings.get("mod_version", "1.0")
+            self.last_mod_description = settings.get("mod_description", "Built and scaled with LaserFocus Injector!")
+            
+            # Load scaling configuration
+            self.default_summary_scale = settings.get("default_summary_scale", 2.7)
+            self.default_front_scale = settings.get("default_front_scale", 1.0)
+            self.default_back_scale = settings.get("default_back_scale", 1.0)
+            self.detection_threshold = settings.get("detection_threshold", 1.10)
+            self.summary_overrides = settings.get("summary_overrides", {})
+            self.front_overrides = settings.get("front_overrides", {})
+            self.back_overrides = settings.get("back_overrides", {})
+            # Load table creation flags
+            self.create_summary_table = settings.get("create_summary_table", True)
+            self.create_front_table = settings.get("create_front_table", True)
+            self.create_back_table = settings.get("create_back_table", True)
+            # Load badge location, padding mode and custom padding
+            self.badge_location.set(settings.get("badge_location", "right"))
+            self.padding_mode.set(settings.get("padding_mode", "left"))
+            self.custom_padding_px.set(settings.get("custom_padding_px", ""))
+            # Load pre-badge scaling (blank or missing = 100%, also check old key name for backwards compatibility)
+            pre_scale_val = settings.get("pre_badge_scale", settings.get("post_badge_scale", "100"))
+            self.pre_badge_scale.set(pre_scale_val if pre_scale_val else "100")
+            # Load back sprite options
+            self.ignore_back_sprites.set(settings.get("ignore_back_sprites", False))
+            # Load output format options
+            self.use_mod_zip_extension.set(settings.get("use_mod_zip_extension", False))
+            
+            # Apply the log directory toggle state
+            self.toggle_log_dir()
+            
+            # Apply shiny hunter mode toggle if enabled
+            if self.shiny_hunter_mode.get():
+                self.toggle_shiny_mode()
+            
+            if refresh_after:
+                # Check directories after loading settings
                 self.root.after(200, self.refresh_analysis)
+            
+            return True
+        except Exception as e:
+            return False
+    
+    def load_settings_file(self):
+        """Load settings from a user-selected file"""
+        from tkinter import filedialog
+        
+        file_path = filedialog.askopenfilename(
+            title="Load Settings File",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+            defaultextension=".json"
+        )
+        
+        if file_path:
+            settings_file = Path(file_path)
+            if settings_file.exists():
+                if self._load_settings_from_file(settings_file, refresh_after=True):
+                    self.last_settings_file = settings_file
+                    self._save_last_settings_path(settings_file)
+                    self._update_settings_file_label(settings_file)
+                    self.log_message(f"✅ Settings loaded from: {settings_file.name}", "SUCCESS")
+                else:
+                    messagebox.showerror("Load Error", f"Failed to load settings from:\n{file_path}")
+            else:
+                messagebox.showerror("Load Error", f"File not found:\n{file_path}")
+    
+    def save_settings_file(self):
+        """Save settings to a user-selected file"""
+        from tkinter import filedialog
+        
+        file_path = filedialog.asksaveasfilename(
+            title="Save Settings File",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+            defaultextension=".json",
+            initialfile="sprite_converter_settings.json"
+        )
+        
+        if file_path:
+            settings_file = Path(file_path)
+            try:
+                self._save_settings_to_file(settings_file)
+                self.last_settings_file = settings_file
+                self._save_last_settings_path(settings_file)
+                self._update_settings_file_label(settings_file)
+                self.log_message(f"✅ Settings saved to: {settings_file.name}", "SUCCESS")
+            except Exception as e:
+                messagebox.showerror("Save Error", f"Failed to save settings:\n{str(e)}")
+    
+    def _update_settings_file_label(self, settings_file=None):
+        """Update the settings file name label"""
+        if hasattr(self, 'settings_file_var'):
+            if settings_file:
+                default_file = Path("sprite_converter_settings.json").absolute()
+                if settings_file.absolute() == default_file:
+                    self.settings_file_var.set("(default)")
+                else:
+                    self.settings_file_var.set(settings_file.name)
+            else:
+                self.settings_file_var.set("(default)")
+    
+    def _save_last_settings_path(self, settings_file):
+        """Save the path of the last used settings file"""
+        try:
+            self.settings_path_file.write_text(str(settings_file.absolute()))
+        except Exception:
+            pass  # Non-critical, ignore errors
+    
+    def load_settings(self):
+        """Load saved settings - tries last used file first, then default"""
+        settings_file = None
+        
+        # Check if there's a remembered last settings file
+        if self.settings_path_file.exists():
+            try:
+                last_path = self.settings_path_file.read_text().strip()
+                if last_path:
+                    last_settings = Path(last_path)
+                    if last_settings.exists():
+                        settings_file = last_settings
+                        self.last_settings_file = last_settings
+                        # Update label after widgets are created
+                        self.root.after(100, lambda: self._update_settings_file_label(last_settings))
             except Exception:
-                pass  # Use defaults if loading fails
+                pass  # Fall back to default
+        
+        # Fall back to default settings file
+        if not settings_file:
+            default_file = Path("sprite_converter_settings.json")
+            if default_file.exists():
+                settings_file = default_file
+                # Don't set last_settings_file for default - it will use default path on save
+        
+        if settings_file:
+            if self._load_settings_from_file(settings_file, refresh_after=True):
+                pass  # Settings loaded successfully
+            # If loading fails, defaults are already set
     
     def cleanup_timers(self):
         """Cancel all pending timers to prevent errors on window close"""

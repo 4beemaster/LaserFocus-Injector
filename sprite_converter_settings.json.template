@@ -6,5 +6,8 @@
   "use_custom_log_dir": false,
   "process_all": true,
   "show_logs": true,
-  "limit": ""
+  "limit": "",  "shiny_hunter_mode": false,
+  "shiny_mode_option": "bullseye_normal",  "mod_name": "LaserFocusInjector",
+  "mod_version": "1.0",
+  "mod_description": "Built and scaled with LaserFocus Injector!"
 }

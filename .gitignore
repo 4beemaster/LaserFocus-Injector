@@ -13,6 +13,7 @@ sprite_converter_settings.json
 # IDE files
 .vscode/
 .idea/
+*.code-workspace
 *.swp
 *.swo
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple build script for Bullseye Injector executable
+Simple build script for LaserFocus Injector executable
 """
 
 import os
@@ -8,8 +8,8 @@ import sys
 import subprocess
 from pathlib import Path
 
-def main():
-    print("Building Bullseye Injector...")
+def main(skip_pause=False):
+    print("Building LaserFocus Injector...")
     
     # Check if required files exist
     if not Path("sprite_converter_gui.py").exists():
@@ -29,9 +29,12 @@ def main():
         sys.executable, "-m", "PyInstaller",
         "--onefile",
         "--windowed",
-        "--name=BullseyeInjector",
+        "--name=LaserFocusInjector",
         "--add-data=sprite_processor.py;.",
+        "--add-data=mod_packager.py;.",
         "--add-data=Template.zip;.",
+        "--add-data=pokemon_weaknesses.json;.",
+        "--add-data=badges;badges",
         "--add-data=modpackages;modpackages",
         "--hidden-import=PIL",
         "--hidden-import=PIL.Image",
@@ -42,6 +45,7 @@ def main():
         "--hidden-import=tkinter.messagebox",
         "--hidden-import=tkinter.scrolledtext",
         "--hidden-import=mod_packager",
+        "--hidden-import=sprite_processor",
         "sprite_converter_gui.py"
     ]
     
@@ -58,7 +62,7 @@ def main():
         print("Running PyInstaller...")
         result = subprocess.run(cmd, check=True)
         
-        exe_path = Path("dist/BullseyeInjector.exe")
+        exe_path = Path("dist/LaserFocusInjector.exe")
         if exe_path.exists():
             size_mb = exe_path.stat().st_size / (1024 * 1024)
             print(f"SUCCESS: Build successful!")
@@ -77,13 +81,17 @@ def main():
         return False
 
 if __name__ == "__main__":
-    success = main()
+    # Check for --no-pause argument
+    skip_pause = "--no-pause" in sys.argv
+    
+    success = main(skip_pause)
     if not success:
         print("\nTroubleshooting:")
         print("1. Make sure PyInstaller is installed: pip install pyinstaller")
         print("2. Check that all required files are in the current directory")
         print("3. Try running: python -m pip install --upgrade pyinstaller")
     
-    input("\nPress Enter to continue...")
+    if not skip_pause:
+        input("\n continue...")
     sys.exit(0 if success else 1)
 

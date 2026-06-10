@@ -1,0 +1,9972 @@
+{
+  "comment": "Pokemon weakness lookup table - maps National Dex number to weakness objects with type and multiplier (2x or 4x)",
+  "000": [],
+  "001": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "002": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "003": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "004": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "005": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "006": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "007": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "008": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "009": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "010": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "011": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "012": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "013": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "014": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "015": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "016": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "017": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "018": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "019": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "020": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "021": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "022": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "023": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "024": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "025": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "026": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "027": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "028": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "029": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "030": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "031": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "032": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "033": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "034": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "035": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "036": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "037": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "038": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "039": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "040": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "041": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "042": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "043": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "044": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "045": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "046": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "047": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "048": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "049": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "050": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "051": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "052": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "053": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "054": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "055": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "056": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "057": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "058": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "059": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "060": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "061": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "062": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "063": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "064": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "065": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "066": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "067": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "068": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "069": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "070": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "071": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "072": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "073": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "074": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "075": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "076": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "077": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "078": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "079": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "080": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "081": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    }
+  ],
+  "082": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    }
+  ],
+  "083": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "084": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "085": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "086": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "087": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "088": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "089": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "090": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "091": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "092": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "093": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "094": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "095": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "096": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "097": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "098": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "099": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "100": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "101": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "102": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "103": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "104": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "105": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "106": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "107": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "108": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "109": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "110": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "111": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "112": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "113": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "114": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "115": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "116": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "117": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "118": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "119": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "120": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "121": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "122": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "123": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "124": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "125": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "126": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "127": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "128": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "129": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "130": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "131": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "132": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "133": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "134": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "135": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "136": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "137": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "138": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "139": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "140": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "141": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "142": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "143": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "144": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "145": [
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "146": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "147": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "148": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "149": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "150": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "151": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "152": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "153": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "154": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "155": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "156": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "157": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "158": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "159": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "160": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "161": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "162": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "163": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "164": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "165": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "166": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "167": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "168": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "169": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "170": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "171": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "172": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "173": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "174": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "175": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "176": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "177": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "178": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "179": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "180": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "181": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "182": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "183": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "184": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "185": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "186": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "187": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "188": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "189": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "190": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "191": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "192": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "193": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "194": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "195": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "196": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "197": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "198": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "199": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "200": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "201": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "202": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "203": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    }
+  ],
+  "204": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "205": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "206": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "207": [
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "208": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "209": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "210": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "211": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "212": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "213": [
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "214": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "215": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "216": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "217": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "218": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "219": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "220": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "221": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "222": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "223": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "224": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "225": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "226": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "227": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    }
+  ],
+  "228": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "229": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "230": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    }
+  ],
+  "231": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "232": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "233": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "234": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "235": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "236": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "237": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "238": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "239": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "240": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "241": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "242": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "243": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "244": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "245": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "246": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "247": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "248": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "249": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "250": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "251": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "252": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "253": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "254": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "255": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "256": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "257": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "258": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "259": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "260": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "261": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "262": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "263": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "264": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "265": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "266": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "267": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "268": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "269": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "270": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "271": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "272": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "273": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "274": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "275": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "276": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "277": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "278": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "279": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "280": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "281": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "282": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "283": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "284": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "285": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "286": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "287": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "288": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "289": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "290": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "291": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "292": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "293": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "294": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "295": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "296": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "297": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "298": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "299": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "300": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "301": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "302": [],
+  "303": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "304": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "305": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "306": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "307": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "308": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "309": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "310": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "311": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "312": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "313": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "314": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "315": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "316": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "317": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "318": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "319": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "320": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "321": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "322": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "323": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "324": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "325": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "326": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "327": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "328": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "329": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "330": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "331": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "332": [
+    {
+      "type": "Bug",
+      "multiplier": 4
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "333": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "334": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "335": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "336": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "337": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "338": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "339": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "340": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "341": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "342": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "343": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "344": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "345": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "346": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "347": [
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "348": [
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "349": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "350": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "351": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "352": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "353": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "354": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "355": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "356": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "357": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "358": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "359": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "360": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "361": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "362": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "363": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "364": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "365": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "366": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "367": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "368": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "369": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "370": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "371": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "372": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "373": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "374": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "375": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "376": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "377": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "378": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "379": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "380": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "381": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "382": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "383": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "384": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "385": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "386": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "387": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "388": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "389": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "390": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "391": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "392": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "393": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "394": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "395": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "396": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "397": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "398": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "399": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "400": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "401": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "402": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "403": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "404": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "405": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "406": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "407": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "408": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "409": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "410": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "411": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "412": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "413": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "414": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "415": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "416": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "417": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "418": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "419": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "420": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "421": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "422": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "423": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "424": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "425": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "426": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "427": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "428": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "429": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "430": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "431": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "432": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "433": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "434": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "435": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "436": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "437": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "438": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "439": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "440": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "441": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "442": [],
+  "443": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "444": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "445": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    }
+  ],
+  "446": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "447": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "448": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "449": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "450": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "451": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "452": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "453": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 4
+    }
+  ],
+  "454": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 4
+    }
+  ],
+  "455": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "456": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "457": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "458": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "459": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "460": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "461": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "462": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    }
+  ],
+  "463": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "464": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 4
+    }
+  ],
+  "465": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "466": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "467": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "468": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "469": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    }
+  ],
+  "470": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "471": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "472": [
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "473": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "474": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "475": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "476": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "477": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "478": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "479": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "480": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "481": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "482": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "483": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "484": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    }
+  ],
+  "485": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "486": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "487": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "488": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "489": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "490": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "491": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "492": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "493": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "494": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "495": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "496": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "497": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "498": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "499": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "500": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "501": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "502": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "503": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "504": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "505": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "506": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "507": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "508": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "509": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "510": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "511": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "512": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "513": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "514": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "515": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "516": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "517": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "518": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "519": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "520": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "521": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "522": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "523": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "524": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "525": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "526": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "527": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "528": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "529": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "530": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "531": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "532": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "533": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "534": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "535": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "536": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "537": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "538": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "539": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "540": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "541": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "542": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "543": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "544": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "545": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "546": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "547": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "548": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "549": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "550": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "551": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "552": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "553": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "554": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "555": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "556": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "557": [
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "558": [
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "559": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    }
+  ],
+  "560": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    }
+  ],
+  "561": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "562": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "563": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "564": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "565": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 4
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "566": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "567": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "568": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "569": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "570": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "571": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "572": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "573": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "574": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "575": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "576": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "577": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "578": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "579": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "580": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "581": [
+    {
+      "type": "Electric",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "582": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "583": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "584": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "585": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "586": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "587": [
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "588": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "589": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "590": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "591": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "592": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "593": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "594": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "595": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "596": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "597": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "598": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "599": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "600": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "601": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "602": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "603": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "604": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "605": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "606": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "607": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "608": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "609": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "610": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "611": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "612": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "613": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "614": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "615": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "616": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "617": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "618": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "619": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "620": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "621": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "622": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "623": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "624": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "625": [
+    {
+      "type": "Fighting",
+      "multiplier": 4
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "626": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    }
+  ],
+  "627": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "628": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "629": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "630": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "631": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "632": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "633": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "634": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "635": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "636": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "637": [
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "638": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "639": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "640": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 4
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "641": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "642": [
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "643": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "644": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "645": [
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "646": [
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "647": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "648": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    }
+  ],
+  "649": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "652": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "653": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "654": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "655": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "656": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "657": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "658": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "659": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "660": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "661": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "662": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "663": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "664": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "665": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "666": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "667": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "668": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "669": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "670": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "671": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "672": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "673": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "674": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "675": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "676": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "677": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "678": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "679": [
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "680": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "681": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Steel",
+      "multiplier": 2
+    }
+  ],
+  "682": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "683": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "684": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    }
+  ],
+  "685": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "686": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "687": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "688": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "689": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "690": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "691": [
+    {
+      "type": "Grass",
+      "multiplier": 4
+    }
+  ],
+  "692": [
+    {
+      "type": "Ground",
+      "multiplier": 4
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "693": [
+    {
+      "type": "Grass",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    }
+  ],
+  "694": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "695": [
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "696": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "697": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Dragon",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    }
+  ],
+  "698": [
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 4
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    }
+  ],
+  "699": [
+    {
+      "type": "Electric",
+      "multiplier": 2
+    },
+    {
+      "type": "Grass",
+      "multiplier": 2
+    }
+  ],
+  "700": [
+    {
+      "type": "Dark",
+      "multiplier": 2
+    },
+    {
+      "type": "Ghost",
+      "multiplier": 2
+    },
+    {
+      "type": "Ground",
+      "multiplier": 2
+    },
+    {
+      "type": "Rock",
+      "multiplier": 2
+    },
+    {
+      "type": "Water",
+      "multiplier": 2
+    }
+  ],
+  "701": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "702": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "703": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "704": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "705": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "706": [
+    {
+      "type": "Bug",
+      "multiplier": 2
+    },
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Fire",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Ice",
+      "multiplier": 2
+    },
+    {
+      "type": "Poison",
+      "multiplier": 2
+    }
+  ],
+  "707": [
+    {
+      "type": "Fighting",
+      "multiplier": 2
+    },
+    {
+      "type": "Flying",
+      "multiplier": 2
+    },
+    {
+      "type": "Psychic",
+      "multiplier": 2
+    }
+  ],
+  "708": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "709": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "710": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ],
+  "711": [
+    {
+      "type": "Fire",
+      "multiplier": 4
+    }
+  ]
+}
